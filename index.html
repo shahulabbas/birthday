@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wishes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        .container {
+            z-index: 2;
+            width: auto;
+            height: auto;
+            transition: all 1s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+            overflow: hidden;
+            background: none;
+        }
+        
+        #first-container>h1,
+        h2 {
+            font-size: 65px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
+        #first-container>h1 {
+            display: none;
+            color: #DCD7C5;
+        }
+        
+        #first-container>h2 {
+            display: none;
+            color: #FAC471;
+        }
+        
+        .flower {
+            position: absolute;
+            top: -50px;
+            /* Start off-screen */
+            font-size: 24px;
+            /* Base size for the flower */
+            color: pink;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                /* Rotate as they fall */
+                opacity: 0;
+                /* Fade out */
+            }
+        }
+        
+        .rotating-border {
+            border: 2px solid #fff;
+            animation: rotate-border 2s linear infinite;
+            /* Adding border rotation */
+        }
+        
+        @keyframes rotate-border {
+            0% {
+                border-color: none;
+            }
+            100% {
+                transition: all 1.5s ease-in-out;
+                border-color: #fff;
+                box-shadow: 0 0 20px #fff;
+                border-radius: 5px;
+            }
+        }
+        
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #282c34;
+        }
+        /* Specific styles for the fourth container's text */
+        
+        #fourth-container h2 {
+            font-size: 16px;
+            /* Smaller font size for the fourth container */
+            line-height: 1.5;
+            /* Adjust line height for better readability */
+            color: white;
+            /* Set text color to white */
+        }
+        
+        .flower,
+        .heart {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        
+        .flower {
+            color: pink;
+            /* Color for flowers */
+        }
+        
+        .heart {
+            color: red;
+            /* Color for hearts */
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .party-layer {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        
+        .fall-down {
+            animation: drop 1s forwards;
+            /* Animation for the falling effect */
+        }
+        
+        @keyframes drop {
+            0% {
+                transform: translateY(-100px);
+                /* Start above the view */
+                opacity: 0;
+                /* Start invisible */
+            }
+            100% {
+                transform: translateY(0);
+                /* End in place */
+                opacity: 1;
+                /* Fade in */
+            }
+        }
+        
+        #second-container,
+        #third-container,
+        #fourth-container {
+            color: #fff;
+            /* Color for other containers */
+            font-size: 20px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        /* Styles for images */
+        
+        .image-slide {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            opacity: 0;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(-200px);
+                opacity: 0;
+                /* Start invisible */
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+                /* Fade in */
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(200px);
+                opacity: 0;
+                /* Start invisible */
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+                /* Fade in */
+            }
+        }
+        
+        .box {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .box>img {
+            width: 200px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="first-container">
+        <h1 id="h1">Hello</h1>
+        <h2>dear Niha</h2>
+    </div>
+
+    <div class="container hidden" id="second-container">
+        <h2 class="fall-text">It's a very special day</h2>
+        <h2 class="fall-text">for you in your life!</h2>
+    </div>
+
+    <div class="container hidden" id="third-container">
+        <h2 class="fall-text">Wishing you all the joy</h2>
+        <h2 class="fall-text">and love on your birthday!</h2>
+    </div>
+
+    <div class="container hidden" id="fourth-container">
+        <h2 class="fall-text">"On your special day, I want you to know how profoundly you have touched my life.</h2>
+        <h2 class="fall-text">You are my rock, my confidant, and my greatest love. May this birthday bring you as much joy as you have given me. Happy Birthday!"</h2>
+    </div>
+
+    <div class="box">
+        <img src="img/niha1.jpeg" class="image-slide" id="left-image">
+        <img src="img/niha2.jpeg" class="image-slide" id="right-image" style="right: 0;">
+    </div>
+    <script>
+        $(document).ready(function() {
+            // First container fade in
+            $("#h1").fadeIn(2500, function() {
+                $(".container").addClass("rotating-border");
+            });
+            $("h2").fadeIn(4000);
+
+            // After first container fade out, show the second
+            setTimeout(() => {
+                $("#first-container").fadeOut(1000, function() {
+                    $("#second-container").removeClass("hidden").fadeIn(1000, function() {
+                        $(".fall-text").each(function() {
+                            $(this).css("display", "block"); // Ensure text is displayed
+                            $(this).addClass("fall-down"); // Add falling animation
+                        });
+                    });
+                    setInterval(createPartyLayer, 300);
+                });
+            }, 5000); // Change to the second container after 5 seconds
+
+            // After second container fade out, show the third
+            setTimeout(() => {
+                $("#second-container").fadeOut(1000, function() {
+                    $("#third-container").removeClass("hidden").fadeIn(1000, function() {
+                        $(".fall-text").each(function() {
+                            $(this).css("display", "block");
+                            $(this).addClass("fall-down");
+                        });
+                    });
+                });
+            }, 10000); // Change to the third container after 10 seconds
+
+            // After third container fade out, show the fourth
+            setTimeout(() => {
+                $("#third-container").fadeOut(1000, function() {
+                    $("#fourth-container").removeClass("hidden").fadeIn(1000, function() {
+                        $(".fall-text").each(function() {
+                            $(this).css("display", "block");
+                            $(this).addClass("fall-down");
+                        });
+                    });
+                });
+            }, 15000); // Change to the fourth container after 15 seconds
+
+            // Create falling flowers and hearts
+            setInterval(createFlower, 300);
+            setInterval(createHeart, 300);
+
+            // Fade out the fourth container and show images
+            setTimeout(() => {
+                $("#fourth-container").fadeOut(1000, function() {
+                    $("#left-image").css('animation', 'slideIn 1s forwards').css('opacity', 1); // Show left image
+                    $("#right-image").css('animation', 'slideInRight 1s forwards').css('opacity', 1); // Show right image
+                });
+            }, 20000); // Show images after 20 seconds (after all text containers)
+        });
+
+        const flowerSymbol = 'N'; // Changed to a flower emoji
+        const heartSymbol = '❤️';
+        const maxFlowers = 100;
+        const maxHearts = 100;
+
+        function createFlower() {
+            if (document.querySelectorAll('.flower').length >= maxFlowers) {
+                return;
+            }
+
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.textContent = flowerSymbol;
+
+            const randomX = Math.random() * window.innerWidth; // Full width for falling flowers
+            const randomSize = Math.random() * 30 + 20; // Random size for effect
+            const randomDuration = Math.random() * 5 + 3; // Duration of fall
+
+            flower.style.left = randomX + 'px'; // Random horizontal position
+            flower.style.fontSize = randomSize + 'px'; // Set random size
+            flower.style.animationDuration = randomDuration + 's'; // Set random duration
+
+            document.body.appendChild(flower); // Append to body
+
+            flower.addEventListener('animationend', () => {
+                flower.remove(); // Remove after animation
+            });
+        }
+
+        function createHeart() {
+            if (document.querySelectorAll('.heart').length >= maxHearts) {
+                return;
+            }
+
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.textContent = heartSymbol;
+
+            const randomX = Math.random() * window.innerWidth; // Full width for falling hearts
+            const randomSize = Math.random() * 30 + 20; // Random size for effect
+            const randomDuration = Math.random() * 5 + 3; // Duration of fall
+
+            heart.style.left = randomX + 'px'; // Random horizontal position
+            heart.style.fontSize = randomSize + 'px'; // Set random size
+            heart.style.animationDuration = randomDuration + 's'; // Set random duration
+
+            document.body.appendChild(heart); // Append to body
+
+            heart.addEventListener('animationend', () => {
+                heart.remove(); // Remove after animation
+            });
+        }
+
+        function createPartyLayer() {
+            const layer = document.createElement('div');
+            layer.classList.add('party-layer');
+
+            const randomX = Math.random() * window.innerWidth;
+            const randomSize = Math.random() * 10 + 5;
+
+            layer.style.left = randomX + 'px';
+            layer.style.width = randomSize + 'px';
+            layer.style.height = randomSize + 'px';
+
+            document.body.appendChild(layer); // Append to body
+
+            layer.addEventListener('animationend', () => {
+                layer.remove(); // Remove after animation
+            });
+        }
+    </script>
+</body>
+
+</html>
